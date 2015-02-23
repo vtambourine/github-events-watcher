@@ -1,3 +1,5 @@
 {
-  "activityStreamUrl": "https://api.github.com/repos/vtambourine/io.js/events"
+  "activityStreamUrl": "https://api.github.com/repos/vtambourine/io.js/events",
+  "translationSource": "/Users/benjamin/Projects/iojs-ru/docs",
+  "translationsStatus": "/Users/benjamin/Projects/iojs-ru/docs/status.json"
 }
