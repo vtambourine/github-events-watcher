@@ -1,0 +1,13 @@
+{
+  "name": "translate",
+  "author": "Benjamin Tambourine",
+  "description": "",
+  "version": "0.0.1",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --use_strict --es_staging index.js"
+  },
+  "devDependencies": {
+  }
+}
