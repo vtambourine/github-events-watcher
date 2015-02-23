@@ -1,27 +1,15 @@
 var http = require('http');
-var WebHook = require('./lib/webhook');
+var EventsWatcher = require('./lib/events-watcher');
+var config = require('./config');
 
-var webhook = new WebHook({secret: process.env.SECRET_TOKEN});
+var watcher = new EventsWatcher(config.activityStreamUrl);
 
-webhook.on('error', function (error) {
+watcher.on('error', function (error) {
     console.log(error.stack);
 });
 
-webhook.on('ping', function (payload) {
-    console.log('Ping: ' + payload.zen);
+watcher.on('push-event', function (event) {
+    console.log('Oush: ', event.payload.commits);
 });
 
-webhook.on('push', function (payload) {
-    //console.log(payload);
-    console.log('push');
-});
-
-//console.log(secretToken);
-var server = http.createServer(function (request, response) {
-    //webhook.emit('name', payload);
-    response.setHeader('Content-Type', 'text/html');
-    webhook.handle(request);
-    response.end('<h1>Bye</h1>');
-});
-
-server.listen(3000);
+watcher.start();
